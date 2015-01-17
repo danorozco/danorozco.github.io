@@ -21,7 +21,7 @@ Enemy.prototype.update = function(dt) {
     // all computers.
 
     //Loop to process (position and collision) all enemies previously loaded
-    for (i=0; i<allEnemies.length; i++) {
+    for (var i=0; i<allEnemies.length; i++) {
 
         //Move enemies
         allEnemies[i].x += 20 * dt;
@@ -152,7 +152,7 @@ GameObjectPrize.prototype.update = function() {
         this.status = 'on';
         var rndSelectNbr = Math.floor(Math.random()*100+1);
         var imgSelectNbr = 0;
-        for (i=0; i<this.prize.length; i++) {
+        for (var i=0; i<this.prize.length; i++) {
             if (rndSelectNbr >= this.prize[i]['min'] && rndSelectNbr <= this.prize[i]['max']) {
                 imgSelectNbr = i;
             }
@@ -339,7 +339,7 @@ var gameObjectPrize = new GameObjectPrize();
 var allEnemies = [];
 
 //Creates and places enemies into allEnemies array.
-for(i=0; i<3; i++) {
+for(var i=0; i<3; i++) {
 
     var newEnemy = new Enemy();
 
