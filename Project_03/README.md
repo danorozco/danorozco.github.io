@@ -3,7 +3,7 @@ frontend-nanodegree-arcade-game
 
 WELCOME!!
 
-To run game:  Click on 'index.html' to launch game.
+To run game:  Click on link: http://danorozco.github.io/Project_03/
 
 Game Play:
 
