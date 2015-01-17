@@ -36,7 +36,7 @@ Enemy.prototype.update = function(dt) {
         //Move player to starting point and remove 1 life if collision occurs.
         if (((player.x >= allEnemies[i].x && player.x <= allEnemies[i].x+80) ||
                 (player.x+80 >= allEnemies[i].x && player.x+80 <= allEnemies[i].x+80))
-                    && player.y >= allEnemies[i].y && player.y <= allEnemies[i].y+83) {
+                && player.y >= allEnemies[i].y && player.y <= allEnemies[i].y+83) {
             player.x = 202;
             player.y = 400;
             gameStats.life -= 1;
