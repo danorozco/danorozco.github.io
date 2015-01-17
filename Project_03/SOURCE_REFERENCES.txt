@@ -1,0 +1,18 @@
+Resources used for Project 3
+----------------------------
+
+- Udacity Videos (HTML5 Canvas, Object-Oriented JavaScript)
+
+- http://jlongster.com/Making-Sprite-based-Games-with-Canvas
+
+- https://developer.mozilla.org/en-US/
+
+- http://www.html5gamedevelopment.com/html5-game-tutorials/2013-12-developing-html5-games-1hr-video-presentation
+
+- http://www.kirupa.com/html5/animating_with_requestAnimationFrame.htm
+
+- http://diveintohtml5.info/canvas.html#text
+
+- http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+
+- http://www.w3schools.com/js/default.asp
