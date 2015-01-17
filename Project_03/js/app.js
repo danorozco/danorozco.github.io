@@ -1,4 +1,10 @@
 // Enemy class for enemies our player must avoid.
+/**
+ * Creates an instance of Enemy.
+ *
+ * @constructor
+ * @this {Enemy}
+ */
 var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -57,6 +63,12 @@ Enemy.prototype.render = function() {
 //the Player class and methods.
 //the position is set to home
 //active is set to yes.  Active is a flag used to enable/disable certain Player functions.
+/**
+ * Creates an instance of Player.
+ *
+ * @constructor
+ * @this {Player}
+ */
 var Player = function() {
     this.sprite = 'images/char-boy.png';
     this.x = 202;
@@ -115,6 +127,12 @@ Player.prototype.handleInput = function(keyEvent) {
 
 //This is the Rock class. This places the bolder on the road.
 //The initial position is random.
+/**
+ * Creates an instance of GameObjectRock.
+ *
+ * @constructor
+ * @this {GameObjectRock}
+ */
 var GameObjectRock = function() {
     this.sprite = 'images/Rock.png';
     this.x = (Math.floor(Math.random()*5)*101);
@@ -129,6 +147,12 @@ GameObjectRock.prototype.render = function() {
 
 //Game Prize class creates the various items to collect on the display board.
 //Status object determines when item is displayed.
+/**
+ * Creates an instance of GameObjectPrize.
+ *
+ * @constructor
+ * @this {GameObjectPrize}
+ */
 var GameObjectPrize = function() {
     this.prize = [
         {'img-src':'images/Gem Blue.png','val':2,'itemType':'gem','min':1,'max':35,'y-offset':35},
@@ -215,6 +239,12 @@ GameObjectPrize.prototype.render = function() {
 };
 
 //Game Stats class.  This stores all the objects related to the game statistics.
+/**
+ * Creates an instance of GameStats.
+ *
+ * @constructor
+ * @this {GameStats}
+ */
 var GameStats = function() {
     this.scorex = 5;
     this.scorey = 15;
@@ -274,6 +304,12 @@ var GameMenu = function() {
 };
 
 //Update method assigns values to certain objects when game over.
+/**
+ * Creates an instance of GameMenu.
+ *
+ * @constructor
+ * @this {GameMenu}
+ */
 GameMenu.prototype.update = function() {
     if (this.gameOver == 'yes') {
         gameObjectPrize.active = 'no';
