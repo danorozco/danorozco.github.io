@@ -16,3 +16,5 @@ Resources used for Project 3
 - http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
 
 - http://www.w3schools.com/js/default.asp
+
+- http://en.wikipedia.org/wiki/JSDoc
