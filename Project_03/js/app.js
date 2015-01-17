@@ -50,14 +50,14 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// now write your own player class
+// now write your own Player class
 // This class requires an update(), render() and
 // a handleInput() method.
 
-//the player class and methods.
+//the Player class and methods.
 //the position is set to home
-//active is set to yes.  Active is a flag used to enable/disable certain player functions.
-var player = function() {
+//active is set to yes.  Active is a flag used to enable/disable certain Player functions.
+var Player = function() {
     this.sprite = 'images/char-boy.png';
     this.x = 202;
     this.y = 400;
@@ -65,16 +65,16 @@ var player = function() {
 };
 
 //Player update method
-player.prototype.update = function() {
+Player.prototype.update = function() {
 
-    //Checks to insure player stays within board borders.
-    //If player goes beyond borders, player is moved back to previous loc before move.
+    //Checks to insure Player stays within board borders.
+    //If Player goes beyond borders, Player is moved back to previous loc before move.
     if (this.y < 68 || this.y > 400 || this.x < 0 || this.x > 404) {
         this.x = this.curx;
         this.y = this.cury;
     }
 
-    //Code below blocks player from moving when encounters a bolder in road.
+    //Code below blocks Player from moving when encounters a bolder in road.
     if ((this.x >= gameObjectRock.x && this.x <= gameObjectRock.x+10) && 
             (this.y >= gameObjectRock.y && this.y <= gameObjectRock.y+10)) {
         this.x = this.curx;
@@ -82,18 +82,18 @@ player.prototype.update = function() {
     }
 };
 
-//Player render method.  Draw player on screen.
-player.prototype.render = function() {
+//Player render method.  Draw Player on screen.
+Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 //Player handleInput method.  Determines move based on keyboard event.
-player.prototype.handleInput = function(keyEvent) {
-    //records player position before move is attempted.
+Player.prototype.handleInput = function(keyEvent) {
+    //records Player position before move is attempted.
     this.curx = this.x;
     this.cury = this.y;
 
-    //if player is active then player will move according to key pressed.
+    //if Player is active then Player will move according to key pressed.
     if (this.active == 'yes') {
         if (keyEvent == 'up') {
             this.y = this.y - 83;
@@ -115,7 +115,7 @@ player.prototype.handleInput = function(keyEvent) {
 
 //This is the Rock class. This places the bolder on the road.
 //The initial position is random.
-var gameObjectRock = function() {
+var GameObjectRock = function() {
     this.sprite = 'images/Rock.png';
     this.x = (Math.floor(Math.random()*5)*101);
     this.y = ((Math.floor(Math.random()*3)+1)*83)-25;
@@ -123,13 +123,13 @@ var gameObjectRock = function() {
 };
 
 //Draws the rock on the screen.
-gameObjectRock.prototype.render = function() {
+GameObjectRock.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 //Game Prize class creates the various items to collect on the display board.
 //Status object determines when item is displayed.
-var gameObjectPrize = function() {
+var GameObjectPrize = function() {
     this.prize = [
         {'img-src':'images/Gem Blue.png','val':2,'itemType':'gem','min':1,'max':35,'y-offset':35},
         {'img-src':'images/Gem Green.png','val':3,'itemType':'gem','min':36,'max':60,'y-offset':35},
@@ -147,7 +147,7 @@ var gameObjectPrize = function() {
 //The update method will pick an item to display.
 //Items have varying probabilities of appearing based on a random number falling between a range.
 //When item is selected various attributes are assigned to variables (value, item type).
-gameObjectPrize.prototype.update = function() {
+GameObjectPrize.prototype.update = function() {
     if (this.status == 'off' && this.active == 'yes') {
         this.status = 'on';
         var rndSelectNbr = Math.floor(Math.random()*100+1);
@@ -208,14 +208,14 @@ gameObjectPrize.prototype.update = function() {
 };
 
 //Render method draws the prize items to the screen if status and active conditions are met.
-gameObjectPrize.prototype.render = function() {
+GameObjectPrize.prototype.render = function() {
     if (this.status == 'on' && this.active == 'yes') {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 };
 
 //Game Stats class.  This stores all the objects related to the game statistics.
-var gameStats = function() {
+var GameStats = function() {
     this.scorex = 5;
     this.scorey = 15;
     this.lifex = 5;
@@ -239,7 +239,7 @@ var gameStats = function() {
 
 //Update method checks if countdown clock or life has met threshold to end game.
 //life checks for '-' since the -1 gets converted to '-' for display.
-gameStats.prototype.update = function(dt) {
+GameStats.prototype.update = function(dt) {
     if (this.countDown < 1 || (this.life < 0 || this.life == '-')) {
         gameMenu.gameOver = 'yes';
     } else {
@@ -248,7 +248,7 @@ gameStats.prototype.update = function(dt) {
 };
 
 //Render method displays Game Stats in menu.
-gameStats.prototype.render = function() {
+GameStats.prototype.render = function() {
     ctx.clearRect(0,0,ctx.canvas.width,45);
     ctx.fillStyle = 'Black';
     ctx.font = '15px Arial';
@@ -268,13 +268,13 @@ gameStats.prototype.render = function() {
 };
 
 //Game Menu Class. Used for game over screen.
-var gameMenu = function() {
+var GameMenu = function() {
     this.gameOver = 'no';
     this.active = 'no';
 };
 
 //Update method assigns values to certain objects when game over.
-gameMenu.prototype.update = function() {
+GameMenu.prototype.update = function() {
     if (this.gameOver == 'yes') {
         gameObjectPrize.active = 'no';
         player.active = 'no';
@@ -290,7 +290,7 @@ gameMenu.prototype.update = function() {
 };
 
 //Render method to draw Game Over screen/prompts.
-gameMenu.prototype.render = function() {
+GameMenu.prototype.render = function() {
     if (this.gameOver == 'yes') {
         ctx.textAlign = 'center';
 
@@ -316,7 +316,7 @@ gameMenu.prototype.render = function() {
 };
 
 //HandleInput method to check for ENTER pressed to restart new game.
-gameMenu.prototype.handleInput = function(keyEvent) {
+GameMenu.prototype.handleInput = function(keyEvent) {
     if (this.active == 'yes') {
         if (keyEvent == 'ENTER') {
             reset();
@@ -328,13 +328,13 @@ gameMenu.prototype.handleInput = function(keyEvent) {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-var gameMenu = new gameMenu();
+var gameMenu = new GameMenu();
 
-var gameStats = new gameStats();
+var gameStats = new GameStats();
 
-var gameObjectRock = new gameObjectRock();
+var gameObjectRock = new GameObjectRock();
 
-var gameObjectPrize = new gameObjectPrize();
+var gameObjectPrize = new GameObjectPrize();
 
 var allEnemies = [];
 
@@ -346,7 +346,7 @@ for(i=0; i<3; i++) {
     allEnemies.push(newEnemy);
 }
 
-var player = new player();
+var player = new Player();
 
 //Reset function runs when game restarts.
 function reset() {
