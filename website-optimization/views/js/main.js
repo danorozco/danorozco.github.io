@@ -352,13 +352,12 @@ var makeRandomPizza = function() {
     pizza = pizza + ingredientItemizer(selectRandomCheese());
   }
 
+
   pizza = pizza + ingredientItemizer(selectRandomSauce());
   pizza = pizza + ingredientItemizer(selectRandomCrust());
 
 
-  return pizza1;
-
-
+  return pizza;
 }
 
 // returns a DOM element for each pizza
@@ -453,10 +452,11 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+    var rndPizzaCont = document.getElementsByClassName('randomPizzaContainer');
+    for (var i = 0; i < rndPizzaCont.length; i++) {
+      var dx = determineDx(rndPizzaCont[i], size);
+      var newwidth = (rndPizzaCont[i].offsetWidth + dx) + 'px';
+      rndPizzaCont[i].style.width = newwidth;
     }
   }
 
@@ -472,15 +472,10 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-var pizzasDiv = document.getElementById("randomPizzas");
-var docfrag = document.createDocumentFragment();
+var pizzasDiv = document.getElementById("randomPizzas"); //****Moved from out of the for loop
 for (var i = 2; i < 100; i++) {
- docfrag.appendChild(pizzaElementGenerator(i));
+  pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
-pizzasDiv.appendChild(docfrag);
-
-  //var pizzasDiv = document.getElementById("randomPizzas");
-  //pizzasDiv.appendChild(pizzaElementGenerator(i));
 
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
 window.performance.mark("mark_end_generating");
@@ -506,18 +501,17 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // Moves the sliding background pizzas based on scroll position
-
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.getElementsByClassName('mover');
   var scrollTop = (document.body.scrollTop / 1250);
+  var items = document.getElementsByClassName('mover');
+
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(scrollTop + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
-
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
@@ -530,9 +524,7 @@ function updatePositions() {
 }
 
 // runs updatePositions on scroll
-//window.addEventListener('scroll', updatePositions);
 window.addEventListener('scroll', updatePositions);
-
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
