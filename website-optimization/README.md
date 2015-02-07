@@ -1,5 +1,12 @@
 ## Below are the notes for the changes performed for optimization and resources used for this project:
 
+Instructions:
+
+To launch website please click below:
+
+http://danorozco.github.io/website-optimization/
+
+
 Resources:
 
 -http://gent.ilcore.com/2011/03/how-not-to-trigger-layout-in-webkit.html
@@ -56,6 +63,13 @@ project-mobile.html
 	- Added 'async' to script tag line for 'analytics.js'
 
 	- Compressed mobilewebdev.jpg to a smaller size
+
+
+Pizza.html (html file)
+
+	- Used GRUNT to concatenate all CSS files and minify it.  Then in-lined them to put into style tag.
+
+	- Compressed pizza.jpg to a smaller size
 
 
 Pizza.html (main.js)
