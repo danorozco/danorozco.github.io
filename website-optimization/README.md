@@ -1,6 +1,4 @@
-## Website Performance Optimization portfolio project
-
-Below are the notes for the changes performed for optimization and resources used for this project:
+## Below are the notes for the changes performed for optimization and resources used for this project:
 
 Resources:
 
@@ -8,12 +6,17 @@ Resources:
 -http://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/
 -http://jsperf.com/queryselectorall-vs-getelementsbytagname
 
-The following site contained many other links that I used but did not list every link within this link.
+-The following site contained many other links that I used but did not list every link within this link.
 -https://developers.google.com/web/fundamentals/performance/
 
 -https://www.udacity.com/ (Udacity Videos)
 -https://piazza.com/class/i23vpy8h7l27la
 -http://www.html5rocks.com/en/tutorials/webperformance/usertiming/
+-http://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/
+
+-http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/
+-http://gruntjs.com/
+-https://www.erianna.com/using-grunt-to-minify-and-compress-assets
 
 
 Notes on Changes Made:
