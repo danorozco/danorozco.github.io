@@ -9,21 +9,17 @@ http://danorozco.github.io/website-optimization/
 
 Resources:
 
--http://gent.ilcore.com/2011/03/how-not-to-trigger-layout-in-webkit.html
--http://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/
--http://jsperf.com/queryselectorall-vs-getelementsbytagname
-
--The following site contained many other links that I used but did not list every link within this link.
--https://developers.google.com/web/fundamentals/performance/
-
--https://www.udacity.com/ (Udacity Videos)
--https://piazza.com/class/i23vpy8h7l27la
--http://www.html5rocks.com/en/tutorials/webperformance/usertiming/
--http://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/
-
--http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/
--http://gruntjs.com/
--https://www.erianna.com/using-grunt-to-minify-and-compress-assets
+- http://gent.ilcore.com/2011/03/how-not-to-trigger-layout-in-webkit.html
+- http://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/
+- http://jsperf.com/queryselectorall-vs-getelementsbytagname
+- https://developers.google.com/web/fundamentals/performance/
+- https://www.udacity.com/ (Udacity Videos)
+- https://piazza.com/class/i23vpy8h7l27la
+- http://www.html5rocks.com/en/tutorials/webperformance/usertiming/
+- http://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/
+- http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/
+- http://gruntjs.com/
+- https://www.erianna.com/using-grunt-to-minify-and-compress-assets
 
 
 Notes on Changes Made:
@@ -40,7 +36,7 @@ Index.html
 
 
 project-2048.html
-	-Removed WebFonts note
+	- Removed WebFonts note
 
 	- Used GRUNT to concatenate all CSS files and minify it.  Then in-lined them to put into style tag.
 
@@ -48,7 +44,7 @@ project-2048.html
 
 
 project-webperf.html
-	-Removed WebFonts note
+	- Removed WebFonts note
 
 	- Used GRUNT to concatenate all CSS files and minify it.  Then in-lined them to put into style tag.
 
@@ -56,7 +52,7 @@ project-webperf.html
 
 
 project-mobile.html
-	-Removed WebFonts note
+	- Removed WebFonts note
 
 	- Used GRUNT to concatenate all CSS files and minify it.  Then in-lined them to put into style tag.
 
@@ -66,14 +62,12 @@ project-mobile.html
 
 
 Pizza.html (html file)
-
 	- Used GRUNT to concatenate all CSS files and minify it.  Then in-lined them to put into style tag.
 
 	- Compressed pizza.jpg to a smaller size
 
 
 Pizza.html (main.js)
-
 	- Performed the following modifications in for loop line 514
 
 		Broke up the following line:
@@ -92,7 +86,7 @@ Pizza.html (main.js)
 			*Note on his move:  scrollTop causes a reflow.  Broke formula apart and put this portion of the formula above the loop.  Source:  http://gent.ilcore.com/2011/03/how-not-to-trigger-layout-in-webkit.html
 
 
-		Changed the following line:
+		Changed the following line from:
 
 			var items = document.querySelectorAll('.mover');
 
@@ -113,6 +107,7 @@ Pizza.html (main.js)
 		-updated the document.querySelectorAll(".randomPizzaContainer") by replacing it with the variable rndPizzaCont that we 	created before the for loop.
 
 		Since all the pizzas are the same size there is no need to iterate over each element in the array to get the pizza size.  Therefore we can move the assignments of dx and newwidth outside the for loop and get the dx and newwidth of the first element in the array.  Therefore change the i to 0.  This removes the unnecessary cycling of assignments in the for loop.  I enclosed the revised lines in an if statement to check if array length is greater than 0. This will ignore the revised lines that reference the first element if that first element does not exist.
+		
 		- Moved the following from:
 			    var dx = determineDx(rndPizzaCont[i], size);
     			var newwidth = (rndPizzaCont[i].offsetWidth + dx) + 'px';
