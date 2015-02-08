@@ -112,6 +112,17 @@ Pizza.html (main.js)
 		-created rndPizzaCont to call the classname outside the for loop.
 		-updated the document.querySelectorAll(".randomPizzaContainer") by replacing it with the variable rndPizzaCont that we 	created before the for loop.
 
+		Since all the pizzas are the same size there is no need to iterate over each element in the array to get the pizza size.  Therefore we can move the assignments of dx and newwidth outside the for loop and get the dx and newwidth of the first element in the array.  Therefore change the i to 0.  This removes the unnecessary cycling of assignments in the for loop.  I enclosed the revised lines in an if statement to check if array length is greater than 0. This will ignore the revised lines that reference the first element if that first element does not exist.
+		- Moved the following from:
+			    var dx = determineDx(rndPizzaCont[i], size);
+    			var newwidth = (rndPizzaCont[i].offsetWidth + dx) + 'px';
+
+    	- To outside the for loop and changed the i to 0 to get the first element in the array and put it in an if statement to insure the array is not empty.
+    		if (rndPizzaCont.length > 0) {
+    			var dx = determineDx(rndPizzaCont[0], size);
+    			var newwidth = (rndPizzaCont[0].offsetWidth + dx) + 'px';
+    		}
+
 
 		On around line 475 :
 
