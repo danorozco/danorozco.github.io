@@ -7,6 +7,22 @@ To launch website please click below:
 http://danorozco.github.io/website-optimization/
 
 
+UPDATED README BASED ON FEEDBACK FROM EVALUATOR
+-----------------------------------------------
+UPDATES:
+- Minified views/pizza.html
+- Minified views/main.js
+- Async views/main.js
+- compressed all images
+- CSS has been inlined in all html files (inbetween STYLE tag)
+- JS files are asynced in all html files
+
+NOTE:  CSS folder/files still in directory but NOT used since CSS has been inlined.
+
+------------------------------------------------
+
+
+
 Resources:
 
 - http://gent.ilcore.com/2011/03/how-not-to-trigger-layout-in-webkit.html
