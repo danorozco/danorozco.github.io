@@ -80,6 +80,7 @@ var ViewModel = function(map, request) {
             url: fsURL,
             type: 'GET',
             dataType: 'jsonp',
+            contentType: 'application/json',
             success: function(response){
             	console.log(response);
             },
