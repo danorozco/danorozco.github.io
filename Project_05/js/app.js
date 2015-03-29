@@ -78,9 +78,11 @@ var ViewModel = function(map, request) {
 
         $.ajax({
             url: fsFullUrl,
-            //type: 'GET',
+            type: 'GET',
             dataType: 'jsonp',
             contentType: 'application/json'
+        }).done (function(data){
+        	console.log(data);
         });
     }
 }
