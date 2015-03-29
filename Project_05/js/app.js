@@ -78,7 +78,7 @@ var ViewModel = function(map, request) {
 
         $.ajax({
             url: fsURL,
-            type: 'GET',
+            //type: 'GET',
             dataType: 'jsonp',
             contentType: 'application/json',
             success: function(response){
@@ -122,7 +122,7 @@ function initialize() {
 		types: ['restaurant','bar']
 	};
 
-	var fsURL = 'https://api.foursquare.com/v2/venues/search';
+	var fsURL = 'https://api.foursquare.com/v2/venues/search?';
 	var fsClientID = '0VUR3DQX5PADBG3WECYJHU5NV22U1O33UA5A4UYK3ATIJGGQ';
 	var fsClientSecret = '0SBDKS3055KICHE3Y5PLP00WFKYQFMRVAUCEGVHZ1WBAZGLK';
 	var fsVersion = '20150329';
