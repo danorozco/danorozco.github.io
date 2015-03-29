@@ -71,7 +71,7 @@ var ViewModel = function(map, request) {
 			content: "hello"
 		});
 
-	self.showInfoWindow = function(loc, fsFullUrl, fsURL, fsClientID, fsClientSecret, fsVersion, fsM) {
+	self.showInfoWindow = function(loc, fsFullUrl) {
 		var marker = (markers[locArray.indexOf(loc)]);
 		infowindow.setContent(loc.name);
 		infowindow.open(map,marker);
@@ -115,7 +115,7 @@ function initialize() {
 	var fsClientSecret = '0SBDKS3055KICHE3Y5PLP00WFKYQFMRVAUCEGVHZ1WBAZGLK';
 	var fsVersion = '20150329';
 	var fsM = 'foursquare';
-	var fsFullUrl = 'https://api.foursquare.com/v2/venues/search?client_id=0VUR3DQX5PADBG3WECYJHU5NV22U1O33UA5A4UYK3ATIJGGQ&client_secret=0SBDKS3055KICHE3Y5PLP00WFKYQFMRVAUCEGVHZ1WBAZGLK&ll=41.948438,-87.655333&v=20150339&m=foursquare'
+	var fsFullUrl = 'https://api.foursquare.com/v2/venues/search?client_id=0VUR3DQX5PADBG3WECYJHU5NV22U1O33UA5A4UYK3ATIJGGQ&client_secret=0SBDKS3055KICHE3Y5PLP00WFKYQFMRVAUCEGVHZ1WBAZGLK&ll=41.948438,-87.655333&v=20150339&m=foursquare';
 
 
 	ko.applyBindings(new ViewModel(map, request));
