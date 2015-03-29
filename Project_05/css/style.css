@@ -1,0 +1,66 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	color: rgb(99,93,75);
+}
+
+body {
+	font: 13px arial;
+	background-color: rgb(233 ,229, 220);
+
+}
+
+#wrapper {
+	height: 100%;
+}
+
+#controlWindow{
+	margin-left: 5px;
+	width: 20%;
+	float: left;
+	border-right: 1px solid #ccc;
+}
+
+#map-canvas {
+	height: 100%;
+}
+
+#searchBar {
+	width: 100%;
+	padding: 3px;
+	border: 1px solid #ccc;
+	border-right: none;
+}
+
+#locList {
+	margin-top: 20px;
+	border: 0px solid black;
+}
+
+#locList h4 {
+	color: brown;
+	text-align: center;
+	text-decoration: underline;
+	border: 0px solid red;
+} 
+
+#locList ul {
+	margin: 10px;
+	height: 80%;
+	overflow: auto;
+	border: 0px solid red;
+}
+
+#locList li{
+	padding: 5px 3px 0px 3px;
+	list-style: none;
+	border-bottom: 1px solid #ccc;
+}
+
+.hover{
+color: orange;
+}
