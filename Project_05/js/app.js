@@ -81,15 +81,12 @@ var ViewModel = function(map, request) {
             //type: 'GET',
             dataType: 'jsonp',
             contentType: 'application/json',
-            success: function(response){
-            	console.log(response);
-            },
             data: {
                 client_id: fsClientID,
                 client_secret: fsClientSecret,
                 ll: '41.948438, -87.655333',
                 query: 'Red Ivy',
-                radius: 50,
+                radius: '50',
                 v: fsVersion,
                 m: fsM
             }
