@@ -71,7 +71,7 @@ var ViewModel = function(map, request) {
 			content: "hello"
 		});
 
-	self.showInfoWindow = function(loc, fsURL, fsClientID, fsClientSecret, fsVersion, fsM) {
+	self.showInfoWindow = function(loc, fsFullUrl, fsURL, fsClientID, fsClientSecret, fsVersion, fsM) {
 		var marker = (markers[locArray.indexOf(loc)]);
 		infowindow.setContent(loc.name);
 		infowindow.open(map,marker);
