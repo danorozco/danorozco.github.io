@@ -61,6 +61,11 @@ body {
 	border-bottom: 1px solid #ccc;
 }
 
-.hover{
-color: orange;
+.checkIn {
+	font-size: 10px;
+	color: red;
+}
+
+.fsAsset {
+	text-align: right;
 }

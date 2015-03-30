@@ -1,6 +1,4 @@
-
-
-var ViewModel = function(map, request) {
+var ViewModel = function(map, request, fsFullUrl) {
 
 	var self = this
 
@@ -71,20 +69,35 @@ var ViewModel = function(map, request) {
 			content: "hello"
 		});
 
-	self.showInfoWindow = function(loc, fsFullUrl) {
+	self.showInfoWindow = function(loc) {
 		var marker = (markers[locArray.indexOf(loc)]);
-		infowindow.setContent(loc.name);
-		infowindow.open(map,marker);
+		var test2 = '';
 
         $.ajax({
-            url: fsFullUrl,
-            type: 'GET',
-            dataType: 'jsonp',
-            contentType: 'application/json'
-        }).done (function(data){
-        	console.log(data);
-        });
-    }
+            url: fsFullUrl + '&query=' + loc.name,
+            //type: 'GET',
+            //dataType: 'jsonp',
+            //contentType: 'application/json'
+        }).success (function(data){
+        	var venue = data.response.venues[0];
+        	var winHTML =
+				'<div class="infoWindow">' + 
+					'<div>' +
+						'<h3>' + venue.name + '</h3>' +
+						'<p>' + venue.location.address + '</p>' +
+						'<p class="checkIn">' + venue.hereNow.summary + '</p>' + 
+					'</div>'+
+					'<div class="fsAsset">' + 
+						'<img src="img/fs.png" height=17 width=100>' + 
+					'</div>' + 
+				'</div>'
+			infowindow.setContent(winHTML);
+			infowindow.open(map,marker);
+        }).fail (function(){
+        	infowindow.setContent('<h4>Four Square Info NA</h4>')
+        	infowindow.open(map,marker);
+		});
+	}
 }
 
 
@@ -120,7 +133,7 @@ function initialize() {
 	var fsFullUrl = 'https://api.foursquare.com/v2/venues/search?client_id=0VUR3DQX5PADBG3WECYJHU5NV22U1O33UA5A4UYK3ATIJGGQ&client_secret=0SBDKS3055KICHE3Y5PLP00WFKYQFMRVAUCEGVHZ1WBAZGLK&ll=41.948438,-87.655333&v=20150339&m=foursquare';
 
 
-	ko.applyBindings(new ViewModel(map, request));
+	ko.applyBindings(new ViewModel(map, request, fsFullUrl));
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
