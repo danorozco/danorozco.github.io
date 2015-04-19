@@ -10,7 +10,7 @@
 			<input id="searchBar" type="text" placeholder="Type Search Here">
 			<div id="locList">
 				<h4>Bars & Restaurants</h4>
-				<ul data-bind="foreach: obsLocArray">
+				<ul id="list" data-bind="foreach: obsLocArray">
 					<li>
 					<span data-bind="event: {click: $parent.showInfoWindow, mouseover: $parent.setMarkerAnimation, mouseout: $parent.resetMarkerAnimation}">
 					<span data-bind="text: name"></span>
@@ -21,6 +21,7 @@
 		<div id="map-canvas"></div>
 		<script src='js/libs/knockout-3.3.0.js'></script>
 		<script src='js/libs/jquery.min.js'></script>
+		<script src='js/libs/jquery-ui.min.js'></script>
 		<script src='js/app.js'></script>
 	</body>
 </html>

@@ -6,9 +6,11 @@ var ViewModel = function(map, request, fsFullUrl) {
 
 	var locArray = [];
 
+	this.locArrays = [];
+
 	var markers = [];
 
-	var infoWindows = [];
+	var infowindow = new google.maps.InfoWindow();
 	
 	service = new google.maps.places.PlacesService(map);
 	service.nearbySearch(request, callback);
@@ -24,6 +26,7 @@ var ViewModel = function(map, request, fsFullUrl) {
       			});
     		}
   		}
+
   		var locArraryLength = 25
   		if (locArray.length > locArraryLength) { 
   			for (var i = locArraryLength; i < locArray.length; i++) {
@@ -33,29 +36,41 @@ var ViewModel = function(map, request, fsFullUrl) {
   		for (var i = 0; i < locArray.length; i++) {
   			self.obsLocArray.push(locArray[i]);
   			var location = locArray[i];
+  			setMarkers(location);
+  		}
+
+		$('#searchBar').bind('keyup', function(e) {
+
+		self.obsLocArray.removeAll();
+		for (var i = 0; i < markers.length; i++) {
+    		markers[i].setMap(null);
+    	}
+    	markers.length = 0;
+
+		var searchVal = $('#searchBar').val();
+
+		for (var i = 0; i < locArray.length; i++) {
+			var str = locArray[i].name;
+				if (str.indexOf(searchVal) > -1) {
+  					self.obsLocArray.push(locArray[i]);
+  					var location = locArray[i];
+  					setMarkers(location);
+  				}
+			}
+		});
+
+		function setMarkers(location) {
 			var marker = new google.maps.Marker({
 				position: location.location,
 				map: map,
 				title: location.name,
 			});
 			markers.push(marker);
-  		}
-	}
-
-	function setMarkers(map, locArray) {
-		for (var i = 0; i < locArray.length; i++){
-			var location = locArray[i];
-			var marker = new google.maps.Marker({
-				position: location.location,
-				map: map,
-				title: location.name,
-			});
 		}
-
 	}
 
 	self.setMarkerAnimation = function(loc) {
-		var marker = (markers[locArray.indexOf(loc)]);
+		var marker = (markers[self.obsLocArray().indexOf(loc)]);
 		marker.setAnimation(google.maps.Animation.BOUNCE);
 	}
 
@@ -65,19 +80,12 @@ var ViewModel = function(map, request, fsFullUrl) {
 		}
 	}
 
-	var infowindow = new google.maps.InfoWindow({
-			content: "hello"
-		});
-
 	self.showInfoWindow = function(loc) {
-		var marker = (markers[locArray.indexOf(loc)]);
+		var marker = (markers[self.obsLocArray().indexOf(loc)]);
 		var test2 = '';
 
         $.ajax({
             url: fsFullUrl + '&query=' + loc.name,
-            //type: 'GET',
-            //dataType: 'jsonp',
-            //contentType: 'application/json'
         }).success (function(data){
         	var venue = data.response.venues[0];
         	var winHTML =
