@@ -133,7 +133,7 @@ function initialize() {
 		minZoom: zoomVal,
 		disableDefaultUI: true,
 		scrollwheel: false,
-		draggable: false
+		draggable: true
 	};
 
 	var map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
