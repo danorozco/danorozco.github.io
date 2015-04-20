@@ -4,17 +4,17 @@ To Run Application: Click on link: http://danorozco.github.io/Project_05/
 
 Information:
 
-	Welcome to the neighborhood map application.  This neighborhood map is centered around Wrigley Field. Home of the Chicago Cubs Baseball team.  Wrigley Field is in the center of a neighborhood called Wrigleyville which is surrounded by many Pubs and Restaurants.  
+Welcome to the neighborhood map application.  This neighborhood map is centered around Wrigley Field. Home of the Chicago Cubs Baseball team.  Wrigley Field is in the center of a neighborhood called Wrigleyville which is surrounded by many Pubs and Restaurants.  
 
-	This application pulls in list of top restaurants and bars within walking distance of Wrigley Field.  This list is live so it updates from Google on every refresh of the page.  Upon page loading, that list becomes the list for the session and any searching in search bar is performed on this list.
+This application pulls in list of top restaurants and bars within walking distance of Wrigley Field.  This list is live so it updates from Google on every refresh of the page.  Upon page loading, that list becomes the list for the session and any searching in search bar is performed on this list.
 
-	The search bar filters the list based on the characters entered.  Only matches will appear in the list and their corresponding map markers.
+The search bar filters the list based on the characters entered.  Only matches will appear in the list and their corresponding map markers.
 
-	You may hover each item on list and the marker will bounce for easy identification before selecting.  Markers rest after moving away from item.
+You may hover each item on list and the marker will bounce for easy identification before selecting.  Markers rest after moving away from item.
 
-	You may select a location either by clicking the name on the list or clicking he actual marker.  The marker will turn green and info window will appear above marker.  Information in marker window is courtesy of FourSquare.  Information shows address and number of individuals checked in.  As expected, check in counts are highest during baseball games.
+You may select a location either by clicking the name on the list or clicking he actual marker.  The marker will turn green and info window will appear above marker.  Information in marker window is courtesy of FourSquare.  Information shows address and number of individuals checked in.  As expected, check in counts are highest during baseball games.
 
-	Application is viewable via desktop and mobile devices.
+Application is viewable via desktop and mobile devices.
 
 
 Resources:
