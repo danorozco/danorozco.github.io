@@ -124,13 +124,15 @@ var ViewModel = function(map, request, fsFullUrl) {
 						'<img src="img/fs.png" height=17 width=100>' +
 					'</div>' +
 				'</div>'
-			infowindow.setContent(winHTML);
-			infowindow.open(map,marker);
+			//markers are reset to original color and selected marker set to green.
 			for (var i = 0; i < markers.length; i++) {
 				markers[i].setIcon();
 			};
-			//marker set to green when marker is clicked or selected from list.
 			marker.setIcon('img/marker_green.png');
+
+			//info window set and opened.
+			infowindow.setContent(winHTML);
+			infowindow.open(map,marker);
 		}).fail (function() {
 			infowindow.setContent('<h4>Four Square Info NA</h4>')
 			infowindow.open(map,marker);
