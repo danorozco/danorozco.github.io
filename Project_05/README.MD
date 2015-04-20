@@ -20,6 +20,7 @@ Information:
 Resources:
 
 - https://developers.google.com/maps/documentation/javascript/tutorial
+- https://developer.foursquare.com/
 - http://knockoutjs.com/
 - http://stackoverflow.com/
 - http://jquery.com/
