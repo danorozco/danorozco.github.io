@@ -50,8 +50,8 @@ var ViewModel = function(map, request, fsFullUrl) {
 		var searchVal = $('#searchBar').val();
 
 		for (var i = 0; i < locArray.length; i++) {
-			var str = locArray[i].name;
-				if (str.indexOf(searchVal) > -1) {
+			var str = locArray[i].name.toLowerCase();
+				if (str.indexOf(searchVal.toLowerCase()) > -1) {
   					self.obsLocArray.push(locArray[i]);
   					var location = locArray[i];
   					setMarkers(location);
@@ -65,8 +65,15 @@ var ViewModel = function(map, request, fsFullUrl) {
 				map: map,
 				title: location.name,
 			});
+			  google.maps.event.addListener(marker, 'click', function() {
+			  self.showInfoWindow(location);});
 			markers.push(marker);
 		}
+	}
+
+
+	function testx(){
+		console.log("xyz");
 	}
 
 	self.setMarkerAnimation = function(loc) {
@@ -101,6 +108,10 @@ var ViewModel = function(map, request, fsFullUrl) {
 				'</div>'
 			infowindow.setContent(winHTML);
 			infowindow.open(map,marker);
+			for (var i = 0; i < markers.length; i++) {
+			 	markers[i].setIcon();
+			 };
+			 marker.setIcon('img/marker_green.png');			
         }).fail (function(){
         	infowindow.setContent('<h4>Four Square Info NA</h4>')
         	infowindow.open(map,marker);
@@ -138,8 +149,9 @@ function initialize() {
 	var fsClientSecret = '0SBDKS3055KICHE3Y5PLP00WFKYQFMRVAUCEGVHZ1WBAZGLK';
 	var fsVersion = '20150329';
 	var fsM = 'foursquare';
-	var fsFullUrl = 'https://api.foursquare.com/v2/venues/search?client_id=0VUR3DQX5PADBG3WECYJHU5NV22U1O33UA5A4UYK3ATIJGGQ&client_secret=0SBDKS3055KICHE3Y5PLP00WFKYQFMRVAUCEGVHZ1WBAZGLK&ll=41.948438,-87.655333&v=20150339&m=foursquare';
+	var fsLL = '41.948438,-87.655333&v=20150339'
 
+	var fsFullUrl = fsURL + 'client_id=' + fsClientID + '&client_secret=' + fsClientSecret + '&ll=' + fsLL + '&v=' + fsVersion + '&m=' + fsM;
 
 	ko.applyBindings(new ViewModel(map, request, fsFullUrl));
 }
