@@ -1,7 +1,7 @@
 // Knockout JS ViewModel
-var ViewModel = function(map, request, fsFullUrl) {
+var ViewModel = function (map, request, fsFullUrl) {
 
-	var self = this
+	var self = this;
 
 	//Observable array populated with location that appear in side window in the view.
 	self.obsLocArray = ko.observableArray([]);
@@ -33,7 +33,7 @@ var ViewModel = function(map, request, fsFullUrl) {
 		}
 
 		//Return list set to a max length.
-		var locArraryLength = 25
+		var locArraryLength = 25;
 
 		//Upon reaching the max length all locations are removed from array using splice method.
 		if (locArray.length > locArraryLength) {
@@ -51,7 +51,7 @@ var ViewModel = function(map, request, fsFullUrl) {
 
 		//Searchbar filter.  Filters the list based on entries in search bar.
 		//Items that do not fit search criteria are filtered from list and markers are also removed for those locations.
-		$('#searchBar').bind('keyup', function(e) {
+		$('#searchBar').bind('keyup', function() {
 
 			//observable array is cleared out and all markers are removed and will be re-populated from items in filtered list.
 			self.obsLocArray.removeAll();
@@ -116,25 +116,25 @@ var ViewModel = function(map, request, fsFullUrl) {
 			var winHTML =
 				'<div class="infoWindow">' +
 					'<div>' +
-						'<h3>' + venue.name + '</h3>' +
-						'<p>' + venue.location.address + '</p>' +
-						'<p class="checkIn">' + venue.hereNow.summary + '</p>' +
+						'<p class="iwLocName">' + venue.name + '</p>' +
+						'<p class="iwAddress">' + venue.location.address + '</p>' +
+						'<p class="iwCheckIn">' + venue.hereNow.summary + '</p>' +
 					'</div>' +
 					'<div class="fsAsset">' +
 						'<img src="img/fs.png" height=17 width=100>' +
 					'</div>' +
-				'</div>'
+				'</div>';
 			//markers are reset to original color and selected marker set to green.
 			for (var i = 0; i < markers.length; i++) {
 				markers[i].setIcon();
-			};
+			}
 			marker.setIcon('img/marker_green.png');
 
 			//info window set and opened.
 			infowindow.setContent(winHTML);
 			infowindow.open(map,marker);
 		}).fail (function() {
-			infowindow.setContent('<h4>Four Square Info NA</h4>')
+			infowindow.setContent('<h4>Four Square Info NA</h4>');
 			infowindow.open(map,marker);
 		});
 	};
@@ -181,14 +181,14 @@ function initialize() {
 	var fsClientSecret = '0SBDKS3055KICHE3Y5PLP00WFKYQFMRVAUCEGVHZ1WBAZGLK';
 	var fsVersion = '20150329';
 	var fsM = 'foursquare';
-	var fsLL = '41.948438,-87.655333&v=20150339'
+	var fsLL = '41.948438,-87.655333&v=20150339';
 
 	//Foursquare API Url constructed using the above FourSquare credentials.
 	var fsFullUrl = fsURL + 'client_id=' + fsClientID + '&client_secret=' + fsClientSecret + '&ll=' + fsLL + '&v=' + fsVersion + '&m=' + fsM;
 
 	//Apply Knockout JS bindings to the ViewModel function.  Passing Map, request, and fsFullUrl parameters.
 	ko.applyBindings(new ViewModel(map, request, fsFullUrl));
-};
+}
 
 //Initialize function is called after window is loaded with Google Map.
 google.maps.event.addDomListener(window, 'load', initialize);

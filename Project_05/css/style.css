@@ -60,9 +60,13 @@ body {
 	border-bottom: 1px solid #ccc;
 }
 
-.checkIn {
+.iwCheckIn {
 	font-size: 10px;
 	color: red;
+}
+
+.iwLocName {
+	font-weight: bold;
 }
 
 .fsAsset {
@@ -74,4 +78,22 @@ body {
 	body {
 		font: 9px arial;
 	}
+	.infoWindow {
+		width: 70px;
+	}
+	.iwCheckIn {
+	font-size: 8px;
+	color: red;
+	}
+	.iwLocName {
+	font-weight: bold;
+	font-size: 8px;
+	}
+	.iwAddress {
+	font-size: 8px;
+	}
+	#searchBar {
+	font-size: 8px;
+	}
+
 }
