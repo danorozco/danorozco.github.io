@@ -1,3 +1,4 @@
+"use strict";
 // Knockout JS ViewModel
 var ViewModel = function (map, request, fsFullUrl) {
 
@@ -15,7 +16,7 @@ var ViewModel = function (map, request, fsFullUrl) {
 
 	//Google API for obtaining list of locations around specified neighborhood.
 	//This becomes our 'destinations in the neighborhood' list.
-	service = new google.maps.places.PlacesService(map);
+	var service = new google.maps.places.PlacesService(map);
 	service.nearbySearch(request, callback);
 
 	//Callback function for nearbySearch Google API.
