@@ -17,18 +17,17 @@ You may select a location either by clicking the name on the list or clicking he
 Application is viewable via desktop and mobile devices.
 
 
-
 Updates made from feedback:
 
 From Project Feedback:
--Updated media query (font size and infowindow properties) and viewport for proper rendering on mobile devices.
--Used JSHint to fix Javascript syntax.
+- Updated media query (font size and infowindow properties) and viewport for proper rendering on mobile devices.
+- Used JSHint to fix Javascript syntax.
 
 From Code Review Suggestions:
 
--Added "use strict" to script.
--Fixed missing semicolons and other syntax.
--Implemented CDN packages for jquery and knockout.
+- Added "use strict" to script.
+- Fixed missing semicolons and other syntax.
+- Implemented CDN packages for jquery and knockout.
 
 
 Resources:
