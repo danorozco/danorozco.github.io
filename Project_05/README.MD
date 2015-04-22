@@ -1,3 +1,6 @@
+UPDATE: Added Updates made from feedback after Information section.
+
+
 WELCOME!!
 
 To Run Application: Click on link: http://danorozco.github.io/Project_05/
@@ -15,6 +18,7 @@ You may hover each item on list and the marker will bounce for easy identificati
 You may select a location either by clicking the name on the list or clicking he actual marker.  The marker will turn green and info window will appear above marker.  Information in marker window is courtesy of FourSquare.  Information shows address and number of individuals checked in.  As expected, check in counts are highest during baseball games.
 
 Application is viewable via desktop and mobile devices.
+
 
 
 Updates made from feedback:
