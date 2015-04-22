@@ -82,17 +82,17 @@ body {
 		width: 70px;
 	}
 	.iwCheckIn {
-	font-size: 8px;
+	font-size: 9px;
 	color: red;
 	}
 	.iwLocName {
 	font-weight: bold;
-	font-size: 8px;
+	font-size: 9px;
 	}
 	.iwAddress {
-	font-size: 8px;
+	font-size: 9px;
 	}
 	#searchBar {
-	font-size: 8px;
+	font-size: 9px;
 	}
 }
