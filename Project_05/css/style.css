@@ -95,4 +95,10 @@ body {
 	#searchBar {
 	font-size: 8px;
 	}
+	@-ms-viewport {
+		width: device-width;
+		initial-scale: .75; 
+		minimum-scale: .75; 
+		maximum-scale: .75;
+	}
 }
