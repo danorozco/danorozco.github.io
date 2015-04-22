@@ -75,24 +75,24 @@ body {
 
 /*Media query to alter font size on mobile device.*/
 @media only screen and (max-width: 767px), only screen and (max-device-width: 767px) {
-	sbody {
-		font: 9px arial;
+	body {
+		font: 10px arial;
 	}
-	.sinfoWindow {
+	.infoWindow {
 		width: 70px;
 	}
-	.siwCheckIn {
-	font-size: 9px;
+	.iwCheckIn {
+	font-size: 8px;
 	color: red;
 	}
-	.siwLocName {
+	.iwLocName {
 	font-weight: bold;
-	font-size: 9px;
+	font-size: 8px;
 	}
-	.siwAddress {
-	font-size: 9px;
+	.iwAddress {
+	font-size: 8px;
 	}
-	#ssearchBar {
-	font-size: 9px;
+	#searchBar {
+	font-size: 8px;
 	}
 }
