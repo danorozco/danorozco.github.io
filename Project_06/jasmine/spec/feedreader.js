@@ -95,7 +95,7 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test wil require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-        it('container contains at least one entry', function() {
+        it('feed container contains at least one entry element', function() {
             expect($('.feed .entry').length).toBeGreaterThan(0);
         });
     });
