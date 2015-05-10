@@ -1,24 +1,55 @@
 <!DOCTYPE html>
+<html>
+<head>
 
-	<html>
-		<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-			<style>
-			* {border: 0px solid black;}
-				.body {text-align: center;}
-				.header {width:768px; height: 50px; background-color:blue;}
-				.header-title {float:left; width:700px; color:white;}
-				.menu-icon {width: 68px; float:left;}
-			</style>
+<style>
 
-		</head>
+html, body {margin:0px; padding:0px;}
 
-		<body>
-			<div class="header">
-				<div class="menu-icon"><img class="menu-pic" src='img\menu-icon-white.png' width='50%'/></div>
-				<div class="header-title">Header Title</div>
-			</div>
+#wrapper {width:100%;}
+#header {position:relative; widths:100%; height:60px; background-color:green;}
+#logo-pic {position:absolute; left:10px; height:70%; top:15%;}
+#menu-pic {position:absolute; right:20px; height:70%; top:15%;}
 
-		</body>
+#menu {position:relative; widths:100%; height:40px; background-color:black;display:block;}
 
-	</html>
+#content{position:relative; height:300px; background-color:gray;}
+
+#box2 {position:relative; left:20px; border:1px solid green; width:400px; height:100px;}
+
+
+</style>
+
+
+
+</head>
+<body>
+<div id="wrapper">
+<div id="header">
+<img id="logo-pic" src='./resources/img/logo.png' />
+<img id="menu-pic" onclick=toggleMenu(); src='./resources/img/menu-icon-white.png' />
+</div>
+<div id="menu"></div>
+<div id="content"></div>
+</div>
+</body>
+
+<script>
+
+var menu = document.getElementById("menu");
+menu.style.display="none";
+
+function toggleMenu() {
+	if (menu.style.display == "none") {
+		menu.style.display = "block";
+	} else {
+		menu.style.display = "none";
+	}
+}
+
+</script
+
+</html>
